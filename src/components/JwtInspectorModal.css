@@ -1,0 +1,315 @@
+/* ==========================================================================
+   JWT Inspector Modal Styles
+   Author: Saibadeep Mullick (BCA 4th Year)
+   ========================================================================== */
+
+.jwt-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.jwt-modal-content {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glow);
+  box-shadow: var(--shadow-2xl), 0 0 35px rgba(16, 185, 129, 0.15);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 820px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+}
+
+.jwt-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.jwt-header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.jwt-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jwt-header-title h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.jwt-header-sub {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.jwt-close-btn {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.jwt-close-btn:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.jwt-status-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--bg-surface-elevated);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.status-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.status-badge-item strong.active {
+  color: var(--emerald-400);
+  font-family: var(--font-mono);
+}
+
+.status-badge-item strong.expired {
+  color: var(--rose-400);
+  font-family: var(--font-mono);
+}
+
+.status-badge-item strong.mono {
+  color: var(--cyan-400);
+  font-family: var(--font-mono);
+}
+
+.storage-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.jwt-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.jwt-section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.jwt-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.raw-token-box {
+  background: #05070c;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  word-break: break-all;
+  white-space: pre-wrap;
+  user-select: all;
+}
+
+.token-part-header {
+  color: var(--rose-400);
+  background: rgba(251, 113, 133, 0.1);
+  padding: 2px 4px;
+  border-radius: var(--radius-xs);
+}
+
+.token-part-payload {
+  color: var(--violet-400);
+  background: rgba(167, 139, 250, 0.1);
+  padding: 2px 4px;
+  border-radius: var(--radius-xs);
+}
+
+.token-part-signature {
+  color: var(--cyan-400);
+  background: rgba(34, 211, 238, 0.1);
+  padding: 2px 4px;
+  border-radius: var(--radius-xs);
+}
+
+.token-dot {
+  color: var(--text-muted);
+  font-weight: 900;
+}
+
+.token-legend {
+  display: flex;
+  gap: 16px;
+  font-size: 0.75rem;
+  padding-left: 4px;
+}
+
+.legend-item::before {
+  content: '■';
+  margin-right: 5px;
+}
+
+.legend-header::before {
+  color: var(--rose-400);
+}
+
+.legend-payload::before {
+  color: var(--violet-400);
+}
+
+.legend-signature::before {
+  color: var(--cyan-400);
+}
+
+.jwt-decoded-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 14px;
+}
+
+@media (max-width: 768px) {
+  .jwt-decoded-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.decoded-block {
+  background: #05070c;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.decoded-block-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.decoded-block-title.header-color {
+  color: var(--rose-400);
+}
+
+.decoded-block-title.payload-color {
+  color: var(--violet-400);
+}
+
+.decoded-pre {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  background: transparent;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.claims-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.claims-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.claims-table th {
+  background: var(--bg-surface-elevated);
+  text-align: left;
+  padding: 8px 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.claims-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.claims-table tr:last-child td {
+  border-bottom: none;
+}
+
+.claims-table code {
+  font-family: var(--font-mono);
+  color: var(--cyan-400);
+  background: rgba(34, 211, 238, 0.08);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+}
+
+.jwt-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.jwt-footer-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
